@@ -1,4 +1,4 @@
-package net.serkanozaydin.serkanozaydinapp;
+package net.serkanozaydin.serkanozaydin;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;

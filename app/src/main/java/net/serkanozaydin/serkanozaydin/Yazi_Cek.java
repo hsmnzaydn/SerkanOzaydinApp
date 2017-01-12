@@ -1,9 +1,6 @@
-package net.serkanozaydin.serkanozaydinapp;
+package net.serkanozaydin.serkanozaydin;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
@@ -19,38 +16,29 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 /**
- * Created by dvcc on 1/11/17.
+ * Created by dvcc on 1/12/17.
  */
 
-public class Sayfa_Cek  {
-
+public class Yazi_Cek {
     private Context context;
     private WebView webView;
     private String url;
     public String veriler;
 
 
-    public Sayfa_Cek(Context context, String url, WebView webView) {
+    public Yazi_Cek(Context context, String url, WebView webView) {
         this.context = context;
         this.webView = webView;
         this.url = url;
 
     }
 
-    public void WebViewAktar(){
-
-
-
+    public void Yazilari_Cek(){
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
 
                 try{
                     byte[] u = response.toString().getBytes(
@@ -59,7 +47,11 @@ public class Sayfa_Cek  {
 
                     Document doc = Jsoup.parse(response);
 
-                    Elements anasayfa = doc.select("div[class=entry themeform]");
+
+
+                    //ilk yazı için
+                    Elements anasayfa=doc.select("div[class=post-inner group]");
+
 
 
                     veriler = anasayfa.outerHtml();
@@ -68,17 +60,19 @@ public class Sayfa_Cek  {
                     settings.setDefaultTextEncodingName("utf-8");
                     webView.loadData(veriler, "text/html; charset=utf-8", "utf-8");
 
+
                 }
                 catch (Exception e){
                     e.printStackTrace();
                 }
 
 
+
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(context, "Lütfen internet bağlantınızın kontrollerini yapınız", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Some error occurred", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -87,10 +81,5 @@ public class Sayfa_Cek  {
 
 
 
-
-
     }
-
-
-
 }

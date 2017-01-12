@@ -1,4 +1,4 @@
-package net.serkanozaydin.serkanozaydinapp;
+package net.serkanozaydin.serkanozaydin;
 
 /**
  * Created by dvcc on 1/10/17.

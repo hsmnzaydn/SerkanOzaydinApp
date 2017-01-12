@@ -1,4 +1,4 @@
-package net.serkanozaydin.serkanozaydinapp;
+package net.serkanozaydin.serkanozaydin;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

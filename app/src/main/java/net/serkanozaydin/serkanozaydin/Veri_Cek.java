@@ -1,9 +1,7 @@
-package net.serkanozaydin.serkanozaydinapp;
+package net.serkanozaydin.serkanozaydin;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -13,7 +11,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,9 +18,6 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
-import static javax.xml.transform.OutputKeys.METHOD;
 
 /**
  * Created by dvcc on 1/11/17.

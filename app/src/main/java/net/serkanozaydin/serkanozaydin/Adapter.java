@@ -1,4 +1,4 @@
-package net.serkanozaydin.serkanozaydinapp;
+package net.serkanozaydin.serkanozaydin;
 
 import android.content.Context;
 import android.view.LayoutInflater;

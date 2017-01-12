@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "251997222713",
+    "firebase_url": "https://serkanozaydinapp.firebaseio.com",
+    "project_id": "serkanozaydinapp",
+    "storage_bucket": "serkanozaydinapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251997222713:android:754731e76bc0adbe",
+        "android_client_info": {
+          "package_name": "net.serkanozaydin.serkanozaydinapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251997222713-0degiofoait8o8j8orc4uttkdjt713t4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.serkanozaydin.serkanozaydinapp",
+            "certificate_hash": "D82706BCB78EEBB271D40F6F920D22BBDE10F3BB"
+          }
+        },
+        {
+          "client_id": "251997222713-9asemassmsf7sb8grb2c6e778p9ufq4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJZtujbD-s4iBwbGN51xzwtmxbRIwcVgc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "251997222713-9asemassmsf7sb8grb2c6e778p9ufq4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

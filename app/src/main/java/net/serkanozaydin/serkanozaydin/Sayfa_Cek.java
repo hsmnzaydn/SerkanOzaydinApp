@@ -1,6 +1,9 @@
 package net.serkanozaydin.serkanozaydin;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
@@ -21,12 +24,14 @@ import org.jsoup.select.Elements;
  * Created by dvcc on 1/11/17.
  */
 
-public class Sayfa_Cek  {
+public class Sayfa_Cek extends AsyncTask<Void,Void,Void> {
 
     private Context context;
     private WebView webView;
     private String url;
     public String veriler;
+    private ProgressDialog progressDialog;
+
 
 
     public Sayfa_Cek(Context context, String url, WebView webView) {
@@ -41,6 +46,7 @@ public class Sayfa_Cek  {
 
 
 
+
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -50,6 +56,9 @@ public class Sayfa_Cek  {
                     byte[] u = response.toString().getBytes(
                             "ISO-8859-1");
                     response = new String(u, "UTF-8");
+                    Log.i(response,"sadsad");
+
+
 
                     Document doc = Jsoup.parse(response);
 
@@ -86,5 +95,50 @@ public class Sayfa_Cek  {
     }
 
 
+    @Override
+    protected Void doInBackground(Void... params) {
 
+        try{
+
+
+
+
+            Document doc = Jsoup.connect(url).get();
+
+            Elements anasayfa = doc.select("div[class=entry themeform]");
+
+
+            veriler = anasayfa.outerHtml();
+
+
+            webView.loadData(veriler, "text/html; charset=utf-8", "utf-8");
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+
+
+
+        return null;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        progressDialog = new ProgressDialog(context);
+        progressDialog.setTitle("SerkanOzaydin.net");
+        progressDialog.setMessage("Yazılar Çekiliyor...");
+        progressDialog.setIndeterminate(false);
+        progressDialog.show();
+    }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+        progressDialog.cancel();
+    }
 }

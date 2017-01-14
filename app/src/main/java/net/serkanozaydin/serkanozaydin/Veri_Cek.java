@@ -2,6 +2,7 @@ package net.serkanozaydin.serkanozaydin;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -9,9 +10,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -48,9 +51,9 @@ public class Veri_Cek {
 
                 List<Model> model=new ArrayList<Model>();
                 try{
-                    byte[] u = response.toString().getBytes(
-                            "ISO-8859-1");
+                   byte[] u = response.toString().getBytes("ISO-8859-1");
                     response = new String(u, "UTF-8");
+
                     Veritabani db=new Veritabani(context);
                  Document doc = Jsoup.parse(response);
 
@@ -97,7 +100,7 @@ public class Veri_Cek {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(context, "Some error occurred", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Bir sorun çıktı galiba ", Toast.LENGTH_LONG).show();
             }
         });
 

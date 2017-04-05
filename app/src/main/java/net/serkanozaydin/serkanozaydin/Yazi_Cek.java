@@ -40,7 +40,7 @@ public class Yazi_Cek {
 
     public void Yazilari_Cek(){
 
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        VolleyString request = new VolleyString(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 

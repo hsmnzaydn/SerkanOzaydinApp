@@ -45,7 +45,7 @@ public class Veri_Cek {
         progressDialog.setIndeterminate(false);
         progressDialog.show();
 
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        VolleyString request = new VolleyString(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
